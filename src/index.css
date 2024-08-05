@@ -25,7 +25,8 @@ main {
     width: 100%;
     height: 95%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     background-color: #F5F5F5;    
     border-radius: 30px;
@@ -34,13 +35,8 @@ main {
 
 .die--grid {
     display: grid;
-    /* justify-content: space-around; */
-    /* margin-top: 40px; */
-    /* margin-bottom: 40px; */
-    /* width: 500px; */
-    grid-template-rows: repeat(2, 100px);
-    grid-template-columns: repeat(5, 100px);
-    gap: 25px;
+    grid-template: auto auto / repeat(5, 1fr);
+    gap: 40px;
 }
 
 .die {
@@ -51,9 +47,11 @@ main {
     align-items: center;
     background-color: #fff;
     border-radius: 11px;
-    /* box-shadow: 0px 7px 7px rgba(38, 38, 38, 0.81); */
-    /* box-shadow: 0px 4px 5px rgba(72, 72, 72, 0.288); */
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.die--text {
     font-size: 40px;
     font-weight: bold;
     color: #2B283A;
@@ -61,4 +59,24 @@ main {
 
 .green {
     background-color: #59E391;
+}
+
+.roll {
+    display: block;
+    width: 200px;
+    height: 75px;
+    margin: 40px;
+    background-color: #5035FF;
+    color: white;
+    font-size: 2rem;
+    font-family: Karla, sans-serif;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.227);
+    cursor: pointer;
+}
+
+.roll:focus {
+    outline: none;
 }

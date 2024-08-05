@@ -1,5 +1,5 @@
-export default function Die() {
+export default function Die(props) {
     return (<div className="die">
-        2
+        <h2 className="die--text">{props.value}</h2>
     </div>)
 }
