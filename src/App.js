@@ -4,14 +4,12 @@ function App() {
   return (
     <div className="App">
       <main>
-        <div className="die--row">
+        <div className="die--grid">
           <Die />
           <Die className="green"/>
           <Die />
           <Die />
           <Die />
-        </div>
-        <div className="die--row">
           <Die />
           <Die />
           <Die />
