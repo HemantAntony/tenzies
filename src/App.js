@@ -9,8 +9,6 @@ function App() {
   const [time, setTime] = React.useState(0)
   const [bestTime, setBestTime] = React.useState(0)
 
-  // localStorage.setItem("bestTime", 2000)
-
   React.useEffect(() => {
     const firstValue = dice[0].value
     const isTenzies = dice.every(die => die.isHeld && die.value === firstValue)
@@ -63,7 +61,6 @@ function App() {
   }
 
   React.useEffect(() => {
-    console.log(tenzies)
     if (tenzies)
       return
 
