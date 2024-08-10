@@ -2,7 +2,16 @@ import React from "react"
 import Die from "./components/Die"
 
 function App() {
-  const [dice, setDice] = React.useState(allNewDice());
+  const [tenzies, setTenzies] = React.useState(false)
+  const [dice, setDice] = React.useState(allNewDice())
+
+  React.useEffect(() => {
+    const firstValue = dice[0].value
+    const isTenzies = dice.every(die => die.isHeld && die.value === firstValue)
+    if (isTenzies) {
+      setTenzies(true)
+    }
+  }, [dice])
 
   function allNewDice() {
     let dice = []
@@ -40,7 +49,7 @@ function App() {
         <div className="die--grid">
           {diceElements}
         </div>
-        <button className="roll" onClick={rollDice}>Roll</button>
+        <button className="roll" onClick={rollDice}>{tenzies ? "New game" : "Roll"}</button>
       </main>
     </div>
   );
