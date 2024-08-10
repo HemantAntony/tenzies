@@ -7,16 +7,30 @@ function App() {
   function allNewDice() {
     let dice = []
     for (let i = 0; i < 10; i++) {
-      dice.push(Math.floor(Math.random() * 6) + 1)
+      dice.push(generateNewDie(i))
     }
     return dice
   }
 
-  function rollDice() {
-    setDice(allNewDice())
+  function generateNewDie(index) {
+    return {
+      id: index,
+      value: Math.ceil(Math.random() * 6),
+      isHeld: false
+    }
   }
 
-  const diceElements = dice.map(die=><Die value={die}/>)
+  function rollDice() {
+    setDice(oldDice => oldDice.map(die => {
+      return die.isHeld ? die : generateNewDie(die.id)
+    }))
+  }
+
+  function holdDice(id) {
+    setDice(oldDice => oldDice.map(die => die.id === id ? {...die, isHeld: !die.isHeld} : die))
+  }
+
+  const diceElements = dice.map(dieObject=><Die key={dieObject.id} isHeld={dieObject.isHeld} value={dieObject.value} onHold={()=>holdDice(dieObject.id)}/>)
   
   return (
     <div className="App">
