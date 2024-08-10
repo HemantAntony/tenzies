@@ -1,5 +1,6 @@
 import React from "react"
 import Die from "./components/Die"
+import Confetti from "react-confetti"
 
 function App() {
   const [tenzies, setTenzies] = React.useState(false)
@@ -30,6 +31,11 @@ function App() {
   }
 
   function rollDice() {
+    if (tenzies) {
+      setDice(allNewDice())
+      setTenzies(false)
+    }
+
     setDice(oldDice => oldDice.map(die => {
       return die.isHeld ? die : generateNewDie(die.id)
     }))
@@ -44,12 +50,13 @@ function App() {
   return (
     <div className="App">
       <main>
+        {tenzies && <Confetti />}
         <h1 className="title">Tenzies</h1>
         <h2 className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</h2>
         <div className="die--grid">
           {diceElements}
         </div>
-        <button className="roll" onClick={rollDice}>{tenzies ? "New game" : "Roll"}</button>
+        <button className="roll" onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
       </main>
     </div>
   );
