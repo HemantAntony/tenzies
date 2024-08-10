@@ -16,7 +16,6 @@ function App() {
     const isTenzies = dice.every(die => die.isHeld && die.value === firstValue)
     if (isTenzies) {
       setTenzies(true)
-      console.log("Time is ", time , " : ", bestTime)
       if (time < bestTime) {
         localStorage.setItem("bestTime", time)
         setBestTime(time)
@@ -101,15 +100,15 @@ function App() {
         {tenzies && <Confetti />}
         <h1 className="title">Tenzies</h1>
         <h2 className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</h2>
-        <div className="die--grid">
-          {diceElements}
-        </div>
-        <button className="roll" onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
-        <div className="die--footer">
+        <div className="die--stats">
           <h3>{`Number of rolls: ${rolls}`}</h3>
           <h3>{`Time: ${formatTime(time)}`}</h3>
           <h3>{`Best time: ${formatTime(bestTime)}`}</h3>
         </div>
+        <div className="die--grid">
+          {diceElements}
+        </div>
+        <button className="roll" onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
       </main>
     </div>
   );

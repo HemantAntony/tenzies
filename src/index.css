@@ -46,8 +46,17 @@ main {
     color: #4A4E74;
 }
 
+.die--stats {
+    margin-top: 25px;
+    display: grid;
+    width: 100%;
+    grid-template: auto auto / repeat(3, 1fr);
+    text-align: center;
+    color: #1a1921;
+}
+
 .die--grid {
-    margin: 40px auto 30px;
+    margin: 10px auto 30px;
     display: grid;
     grid-template: auto auto / repeat(5, 1fr);
     gap: 40px;
@@ -93,13 +102,4 @@ main {
 
 .roll:focus {
     outline: none;
-}
-
-.die--footer {
-    margin-top: 25px;
-    display: grid;
-    width: 100%;
-    grid-template: auto auto / repeat(3, 1fr);
-    text-align: center;
-    color: #1a1921;
 }
