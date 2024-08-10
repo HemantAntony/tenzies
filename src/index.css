@@ -33,7 +33,21 @@ main {
     padding: 60px;
 }
 
+.title {
+    font-size: 4rem;
+    color: #2B283A;
+}
+
+.instructions {
+    font-family: Inter, sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 400;
+    color: #4A4E74;
+}
+
 .die--grid {
+    margin: 40px auto 30px;
     display: grid;
     grid-template: auto auto / repeat(5, 1fr);
     gap: 40px;
@@ -65,7 +79,7 @@ main {
     display: block;
     width: 200px;
     height: 75px;
-    margin: 40px;
+    margin:30px auto auto;
     background-color: #5035FF;
     color: white;
     font-size: 2rem;

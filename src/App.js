@@ -35,6 +35,8 @@ function App() {
   return (
     <div className="App">
       <main>
+        <h1 className="title">Tenzies</h1>
+        <h2 className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</h2>
         <div className="die--grid">
           {diceElements}
         </div>
