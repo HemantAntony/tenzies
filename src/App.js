@@ -37,6 +37,7 @@ function App() {
     return {
       id: index,
       value: Math.ceil(Math.random() * 6),
+      // value: index % 6 + 1,
       isHeld: false
     }
   }
